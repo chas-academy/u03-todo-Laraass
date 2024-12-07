@@ -1,0 +1,8 @@
+db:
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      ....
+      ....
+    volumes:
+    - ./src/seed:/docker-entrypoint-initdb.d:ro
