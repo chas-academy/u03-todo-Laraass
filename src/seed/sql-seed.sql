@@ -7,6 +7,7 @@ CREATE TABLE Task (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
     description VARCHAR(255) NOT NULL,
+    type VARCHAR(25),
     created_at DATETIME,
     updated_at DATETIME,
     is_completed BIT(1),

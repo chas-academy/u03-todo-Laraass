@@ -181,11 +181,12 @@ button {
     cursor: pointer;
 }
 
-/*
+
 .task-list ul {
     list-style: none;
     padding: 0;
 }
+
 
 .task-list li {
     background: $neutral-100;
@@ -198,13 +199,11 @@ button {
     align-items: center;
 }
 
-
-/*
 .task {
     gap: 100px;
 }
-kanske ta bort */
 
+//går ej att flytta på edit, checkbox & delete
 .task h3 {
     margin: 0 0 10px;
     font-size: 18px;
@@ -219,11 +218,11 @@ kanske ta bort */
 
 .action-button {
     display: flex;
+    flex-direction: row;
     gap: 8px; 
   }
 
 /*
-
 
 .close-popup {
     display: block;

@@ -168,29 +168,27 @@ button {
   cursor: pointer;
 }
 
-/*
 .task-list ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .task-list li {
-    background: $neutral-100;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 24px;
-    box-shadow: 0 2px 4px $neutral-900;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: #F8F8F8;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 24px;
+  box-shadow: 0 2px 4px #0B0824;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
-/*
 .task {
-    gap: 100px;
+  gap: 100px;
+  width: 100%;
 }
-kanske ta bort */
+
 .task h3 {
   margin: 0 0 10px;
   font-size: 18px;
@@ -201,29 +199,43 @@ kanske ta bort */
   margin: 0;
   font-size: 14px;
   color: #0B0824;
+  padding-left: 1.3rem;
 }
 
-.action-button {
+.top-row {
+  width: 100%;
   display: flex;
-  gap: 8px;
+  justify-content: space-between;
 }
 
-/*
+.top-left {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
 
+.top-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
 
-.close-popup {
+/*.close-popup {
     display: block;
     text-align: center;
     margin-top: 10px;
     color: $neutral-900;
     text-decoration: none;
-}
+} */
 
 .close-popup:hover {
     text-decoration: underline;
 }
 
-.action-button {
+/*.action-button {
+    display: flex;
+    flex-direction: row;
+    justify
     background: none;
     border: none;
     cursor: pointer;
@@ -231,7 +243,7 @@ kanske ta bort */
     border-radius: 4px;
     transition: background-color 0.2s ease;
   }
-
+*/
 
 .action-button i {
   font-size: 16px;
@@ -241,5 +253,7 @@ kanske ta bort */
 .action-button:hover {
   background-color: #f0f0f0;
 }
-*/
+
+
+
 /*DATOR HÄR*//*# sourceMappingURL=style.css.map */
