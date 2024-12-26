@@ -1,5 +1,6 @@
 <?php
 require_once "./functions/functions.php";
+require "./edit_task.php";
 
 $tasks = fetchTasks();
 
@@ -8,6 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'], $_POST['desc
     header("Location: index.php");
     exit();
 }
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['delete']) && isset($_POST['delete_id'])) {
+        deleteTask($conn, $_POST['delete_id']);
+    } elseif (isset($_POST['status']) && isset($_POST['id'])) {
+        updateTask();
+    }
+}
+
 
 require_once "header.php";
 ?>
@@ -28,8 +39,10 @@ require_once "header.php";
                     <form class="popup-form" action="index.php" method="POST">
                         <input type="text" name="title" placeholder="Title" required>
                         <textarea name="description" placeholder="Description..." required></textarea>
-                        <button type="submit"><img src="./assets/save-button.svg" alt="Save button"></button>
-                        <a href="/" class="close-popup">Cancel</a> 
+                        <div class="popup-buttons">
+                            <button type="submit"><img src="./assets/save-button.svg" alt="Save button"></button>
+                            <a href="/" class="close-popup">Cancel</a> 
+                        </div>
                     </form>
                 </div>
                 <?php endif; ?>
@@ -60,65 +73,36 @@ require_once "header.php";
 
                             <div class="top-right">
                             <!-- Edit-knapp -->
-                            <form action="edit_task.php">
+                            <form class="edit-task" action="edit_task.php" method="POST">
                             <button><a href="?edit_task=<?= $task['id'] ?>"><img src="./assets/edit-icon.svg" alt="Edit button"></a></button>
-                            </form>
                             
-                            <!--funkar ej-->
                             <?php if ($editTask): ?>
-                            <form class="edit-task" action="index.php">
-                            <form class="popup-form" action="index.php" method="POST">
-                                <input type="hidden" name="task_id" value="<?= htmlspecialchars($editTask['id']) ?>">
-                                <input type="text" name="title" value="<?= htmlspecialchars($editTask['title']) ?>" required>
-                                <textarea name="description" required><?= htmlspecialchars($editTask['description']) ?></textarea>
+                                <input type="hidden" name="task_id" value="<?= htmlspecialchars(string: $task['id']) ?>">
+                                <input type="text" name="title" value="<?= htmlspecialchars(string: $task['title']) ?>" required>
+                                <textarea name="description" required><?= htmlspecialchars(string: $task['description']) ?></textarea>
                                 <button type="submit">Save Changes</button>
-                            </form>
                             <button type="submit">Cancel</button>
-                        
                             <?php endif; ?>
                             </form>
 
 
                             <!-- Delete-knapp -->
-                            <?php
-                                if(isset($_GET["delete"])) {
-                                    $id = $_GET["delete"];
-                                    $conn->query("DELETE FROM Task WHERE id = 'id'");
-                                }
-                            ?>
-                            <form class="action-button" action="index.php">
-                            <button><a href="?delete_task=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to delete this task?')">
-                            <img src="./assets/delete-icon.svg" alt="Delete button"></a></button>
+                            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                                <input type="hidden" name="delete_id" value="<?= $task['id'] ?>">
+                                <button title="delete" name="delete" value="true">
+                                <img src="./assets/delete-icon.svg" alt="Delete button">
+                            </button>
                             </form>
                             </div>
                             </div>
-                            
 
                             <p><?= htmlspecialchars($task['description']) ?></p>
-                            
-                            
-                            </div>
+
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
         </section>
-
-
-
     </main>
 </body>
 </html>
-
-
-<!--<label for="checkbox">
-                            <input type="checkbox" id="checkbox">
-                            <span>
-                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="8.5" cy="8.5" r="8" stroke="#0B0824"/>
-                            </svg>
-                            checkbox
-                            </span>
-                        </label>-->
-                        
-                        <!--<input type="checkbox" id="toggle">
-                        <div class="control-me">control me</div>-->

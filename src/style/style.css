@@ -100,7 +100,7 @@ nav {
 }
 
 .menu li:hover {
-  background-color: rgba(255, 255, 255, 0.285);
+  background-color: #5D5A67;
   cursor: pointer;
 }
 
@@ -126,6 +126,7 @@ button {
   display: inline-block; /* Se till att SVG:n visas korrekt */
   width: auto; /* Behåll proportionerna */
   height: auto; /* Behåll proportionerna */
+  padding-left: 10px;
 }
 
 .add-task {
@@ -139,12 +140,12 @@ button {
 }
 
 .popup-form {
-  /*lägg till transition*/
   background: #F8F8F8;
   padding: 20px;
   border-radius: 24px;
   width: 100%;
   box-shadow: 0 4px 8px #0B0824;
+  transition: 0.5s all linear;
 }
 
 .popup-form input,
@@ -156,8 +157,16 @@ button {
   border: 1px solid #B0ADBA;
   border-radius: 10px;
   font-size: 14px;
-  color: #0B0824; /*försök se till att titel o desc är synligt, placeholder måste ändras)*/
+  color: #0B0824;
   opacity: 29; /*opacity ska va 20% egentligen*/
+}
+
+::-moz-placeholder {
+  color: #0B0824;
+}
+
+::placeholder {
+  color: #0B0824;
 }
 
 .popup-form textarea:focus {
@@ -166,6 +175,12 @@ button {
 
 .popup-form button {
   cursor: pointer;
+}
+
+.popup-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .task-list ul {
@@ -185,8 +200,25 @@ button {
 }
 
 .task {
-  gap: 100px;
   width: 100%;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-left {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.top-right {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
 }
 
 .task h3 {
@@ -199,43 +231,29 @@ button {
   margin: 0;
   font-size: 14px;
   color: #0B0824;
-  padding-left: 1.3rem;
+  padding-left: 1.1rem;
 }
 
-.top-row {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
+/*
+.action-button {
+    display: flex;
+    flex-direction: row;
+    gap: 8px; 
+  }
 
-.top-left {
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-}
 
-.top-right {
-  display: flex;
-  justify-content: flex-end;
-  gap: 5px;
-}
-
-/*.close-popup {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
+//vill inte flyttas 
+.close-popup {
+    padding-top: 50px;
     color: $neutral-900;
     text-decoration: none;
-} */
+}
 
 .close-popup:hover {
     text-decoration: underline;
 }
 
-/*.action-button {
-    display: flex;
-    flex-direction: row;
-    justify
+.action-button {
     background: none;
     border: none;
     cursor: pointer;
@@ -243,7 +261,7 @@ button {
     border-radius: 4px;
     transition: background-color 0.2s ease;
   }
-*/
+
 
 .action-button i {
   font-size: 16px;
@@ -253,7 +271,5 @@ button {
 .action-button:hover {
   background-color: #f0f0f0;
 }
-
-
-
+*/
 /*DATOR HÄR*//*# sourceMappingURL=style.css.map */

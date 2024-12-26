@@ -19,7 +19,6 @@ html {
   overflow-x: hidden;
 }
 
-
 body {
     font-family: "Poppins";
     color: $neutral-900;
@@ -112,7 +111,7 @@ nav{
 }
 
 .menu li:hover{
-    background-color: rgba(255, 255, 255, 0.285);
+    background-color: $neutral-600;
     cursor: pointer;
 }
 
@@ -139,6 +138,7 @@ button {
     display: inline-block; /* Se till att SVG:n visas korrekt */
     width: auto; /* Behåll proportionerna */
     height: auto; /* Behåll proportionerna */
+    padding-left: 10px;
 }
 
 .add-task {
@@ -151,17 +151,17 @@ button {
     transition: 0.2s ease-in; 
 }
 
-.popup-form {
-    /*lägg till transition*/
+.edit-task {
     background: $neutral-100;
     padding: 20px;
     border-radius: 24px;
     width: 100%;
     box-shadow: 0 4px 8px $neutral-900;
+    transition: 0.5s all linear; //transition funkar ej 
 }
 
-.popup-form input,
-.popup-form textarea {
+.edit-task input,
+.edit-task textarea {
     background-color: #dddbe4; /*testa ändra färg till 500*/
     width: 100%;
     margin-bottom: 10px;
@@ -169,18 +169,27 @@ button {
     border: 1px solid $neutral-500;
     border-radius: 10px;
     font-size: 14px;
-    color: $neutral-900; /*försök se till att titel o desc är synligt, placeholder måste ändras)*/
+    color: $neutral-900; 
     opacity: 29; /*opacity ska va 20% egentligen*/
 }
 
-.popup-form textarea:focus {
+::placeholder {
+    color: $neutral-900;
+}
+
+.edit-task textarea:focus {
     height: auto;
 }
 
-.popup-form button {
+.edit-task button {
     cursor: pointer;
 }
 
+.popup-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
 
 .task-list ul {
     list-style: none;
@@ -200,10 +209,27 @@ button {
 }
 
 .task {
-    gap: 100px;
+    width: 100%;
 }
 
-//går ej att flytta på edit, checkbox & delete
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.top-left {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.top-right {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+
 .task h3 {
     margin: 0 0 10px;
     font-size: 18px;
@@ -214,20 +240,20 @@ button {
     margin: 0;
     font-size: 14px;
     color: $neutral-900;
+    padding-left: 1.1rem;
 }
 
+/*
 .action-button {
     display: flex;
     flex-direction: row;
     gap: 8px; 
   }
 
-/*
 
+//vill inte flyttas 
 .close-popup {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
+    padding-top: 50px;
     color: $neutral-900;
     text-decoration: none;
 }
