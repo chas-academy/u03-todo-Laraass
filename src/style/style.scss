@@ -43,10 +43,9 @@ header {
     z-index: 1;
 }
 
-main {
+main { 
     padding: 20px;
 }
-
 
 /*NAVBAR*/
 nav{
@@ -151,7 +150,7 @@ button {
     transition: 0.2s ease-in; 
 }
 
-.edit-task {
+.popup-form {
     background: $neutral-100;
     padding: 20px;
     border-radius: 24px;
@@ -160,8 +159,8 @@ button {
     transition: 0.5s all linear; //transition funkar ej 
 }
 
-.edit-task input,
-.edit-task textarea {
+.popup-form input,
+.popup-form textarea {
     background-color: #dddbe4; /*testa ändra färg till 500*/
     width: 100%;
     margin-bottom: 10px;
@@ -243,6 +242,8 @@ button {
     padding-left: 1.1rem;
 }
 
+
+
 /*
 .action-button {
     display: flex;
@@ -285,3 +286,38 @@ button {
 
 
 /*DATOR HÄR*/
+@media screen and (min-width: 900px) {
+    
+    body {
+        width: 60%;
+    }
+
+    header {
+        padding-left: 9.5rem;
+    }
+
+    header img {
+        margin-right: auto;
+    }
+
+    .add-task-button {
+        padding-left: 8rem;
+    }
+
+    .add-task {
+        padding-left: 8.5rem;
+    }
+
+    .popup-form {
+        width: 400px;
+    }
+
+    .task-list {
+        padding-left: 8rem;
+    }
+
+    nav{
+        width: 40%;
+    }
+    
+}
