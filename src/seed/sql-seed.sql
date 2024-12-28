@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS "todolist";
+CREATE DATABASE IF NOT EXISTS todolist;
 
-USE "todolist";
+USE todolist;
 
 CREATE TABLE List (
     id INT AUTO_INCREMENT PRIMARY KEY,

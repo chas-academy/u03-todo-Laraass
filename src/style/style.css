@@ -169,11 +169,11 @@ button {
   color: #0B0824;
 }
 
-.popup-form textarea:focus {
+.edit-task textarea:focus {
   height: auto;
 }
 
-.popup-form button {
+.edit-task button {
   cursor: pointer;
 }
 
@@ -272,4 +272,30 @@ button {
   background-color: #f0f0f0;
 }
 */
-/*DATOR HÄR*//*# sourceMappingURL=style.css.map */
+/*DATOR HÄR*/
+@media screen and (min-width: 900px) {
+  body {
+    width: 60%;
+  }
+  header {
+    padding-left: 9.5rem;
+  }
+  header img {
+    margin-right: auto;
+  }
+  .add-task-button {
+    padding-left: 8rem;
+  }
+  .add-task {
+    padding-left: 8.5rem;
+  }
+  .popup-form {
+    width: 400px;
+  }
+  .task-list {
+    padding-left: 8rem;
+  }
+  nav {
+    width: 40%;
+  }
+}/*# sourceMappingURL=style.css.map */
