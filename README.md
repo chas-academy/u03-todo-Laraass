@@ -1,3 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/5k4uDUDX)
+# Link to Figma
 
-<!---Lägg till länk till figma skissen här>
+- [Click here to be redirected to the Figma design!](https://www.figma.com/design/BHHymazghN9Ct0dlO8qcdi/U03?node-id=0-1&t=cxNihnOqaR8XzJEm-1)
