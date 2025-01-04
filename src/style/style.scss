@@ -5,18 +5,16 @@ $neutral-900: #0B0824;
 $neutral-600: #5D5A67;
 $neutral-500: #B0ADBA;
 $neutral-100: #F8F8F8;
-$h1-fontsize: 3rem;
-$h2-fontsize: 2.5rem;
-$p-fontsize: 1rem;
+$p-fontsize: 1.25rem;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 body {
@@ -27,31 +25,197 @@ body {
     width: 100%;
     height: 100%;
     background-color: $primary-color;
+
+    //Design for header
+    header img {
+        height: 5.5rem;
+        margin-right: auto;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        padding: 1.5rem 1.5rem 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    main {
+        padding: 20px;
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .add-task-button img {
+            display: inline-block;
+            width: auto;
+            height: auto;
+            padding-left: 10px;
+        }
+
+        .add-task {
+            margin: 20px 0;
+        }
+
+        //Design for popup-form
+        .popup-form {
+            background: $neutral-100;
+            padding: 20px;
+            border-radius: 24px;
+            width: 100%;
+            box-shadow: 0 4px 8px $neutral-900;
+        }
+
+        .popup-form input,
+        .popup-form textarea {
+            background-color: #dddbe4;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid $neutral-500;
+            border-radius: 10px;
+            font: inherit;
+            font-size: 14px;
+            color: $neutral-900;
+            opacity: 29;
+        }
+
+        ::placeholder {
+            color: $neutral-900;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        //Design for task list
+        .task-list {
+            list-style: none;
+            padding-bottom: 5rem;
+        }
+
+        .task-list li {
+            background: $neutral-100;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 24px;
+            box-shadow: 0 2px 4px $neutral-900;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        //Design for task-box
+        .task {
+            width: 100%;
+        }
+
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-left {
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
+        }
+
+        .top-left i {
+            padding-top: 0.2rem;
+        }
+
+        .top-right {
+            display: flex;
+            flex-direction: row;
+            gap: 3px;
+        }
+
+        .task h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: $neutral-900;
+        }
+
+        .task p {
+            margin: 0;
+            font-size: 14px;
+            color: $neutral-900;
+            padding-left: 1.4rem;
+        }
+
+        .close-popup {
+            display: flex;
+            align-self: center;
+            padding-bottom: 15px;
+            color: $neutral-900;
+            text-decoration: none;
+        }
+
+
+        //Design for hover on buttons
+        .add-task-button:hover img {
+            transform: scale(1.1);
+            transition: 0.2s ease-in;
+        }
+
+        .popup-buttons button:hover img {
+            transform: scale(1.1);
+            transition: 0.2s ease-in;
+        }
+
+        .close-popup:hover {
+            text-decoration: underline;
+            color: red;
+        }
+
+        button[name="toggle_complete"] i {
+            font-size: 1.2rem;
+        }
+
+        button[name="toggle_complete"]:hover i {
+            color: $primary-color;
+            transform: scale(1.1);
+            transition: 0.2s ease-in-out;
+        }
+
+        button[name="delete"] img a.edit-button img {
+            width: 1.1rem;
+            transition: 0.2s ease-in-out;
+        }
+
+        button[name="delete"]:hover img {
+            transform: scale(1.1);
+            filter: brightness(0) saturate(100%) invert(40%) sepia(96%) saturate(3985%) hue-rotate(355deg) brightness(95%) contrast(90%);
+        }
+
+        a.edit-button:hover img {
+            transform: scale(1.1);
+            filter: brightness(0) saturate(100%) invert(47%) sepia(81%) saturate(379%) hue-rotate(183deg) brightness(98%) contrast(99%);
+        }
+
+    }
 }
 
-header img {
-    height: 5.5rem;
-    margin-right: 10px;
-}
 
-header {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    padding: 1.5rem 1.5rem 0;
-    position: relative;
-    z-index: 1;
-}
-
-main { 
-    padding: 20px;
-}
-
-/*NAVBAR*/
-nav{
+// Design for navbar
+nav {
     width: 100%;
-    height: 5rem;
-    padding: 0 10px;
+    height: 4rem;
+    padding: 0 1rem;
     display: flex;
     align-items: center;
     position: relative;
@@ -59,37 +223,37 @@ nav{
     left: 0;
 }
 
-.check, .toggle{
-    width: 42px;
-    height: 30px;
+.menu-toggle {
+    width: 2.5rem;
+    height: 1.8rem;
     position: absolute;
     top: 10px;
     left: 10px;
     z-index: 5;
+    display: none;
 }
 
-.check{
-    z-index: 4;
-    cursor: pointer;
-    opacity: 0;
+.menu-toggle:checked ~ .menu {
+    opacity: 1;
 }
-.toggle{
+
+label {
     z-index: 3;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    left: 0;
 }
 
-.hamburgermenu {
-    padding-bottom: 50px;
-}
-
-.check:checked ~ .toggle .hamburgermenu img {
+.menu-toggle:checked ~ label .hamburgermenu img {
     filter: brightness(0) saturate(100%) invert(94%) sepia(4%)
             saturate(0%) hue-rotate(177deg) brightness(103%) contrast(100%);
 }
 
-.menu{
+.menu {
     width: 100%;
     height: 100vh;
-    padding-top: 70px;
+    padding-top: 4.3rem;
     list-style: none;
     color: $neutral-100;
     background-color: $primary-dark;
@@ -98,226 +262,66 @@ nav{
     left: -100%;
     z-index: 2;
     opacity: 90%;
-    transition: 0.5s all linear; /*ändra sen kolla olika*/
+    transition: 0.6s all linear;
 }
 
-.menu li{
+.option {
+    text-align: left;
+    text-decoration: none;
+    color: #F8F8F8;
+    padding-top: 10px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.menu li {
+    width: 100%;
     display: flex;
     align-items: center;
-    padding-left: 20px;
-    padding-bottom: 6px;
-    font-size: 18px;
+    padding-left: 1.25rem;
+    padding-bottom: 10px;
+    font-size: $p-fontsize;
 }
 
-.menu li:hover{
+.menu li:hover {
     background-color: $neutral-600;
-    cursor: pointer;
 }
 
-.check:checked ~ .menu{
+.menu-toggle:checked ~ .menu {
     left: 0;
     opacity: 98%;
 }
 
-/*NAVBAR SLUT*/
-
-a {
-    text-decoration: none; 
-    display: inline-block;
-}
-
-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-.add-task-button img {
-    display: inline-block; /* Se till att SVG:n visas korrekt */
-    width: auto; /* Behåll proportionerna */
-    height: auto; /* Behåll proportionerna */
-    padding-left: 10px;
-}
-
-.add-task {
-    margin: 20px 0;
-}
-
-.add-task-button:hover img {
-    filter: brightness(1.5);
-    transform: scale(1.05);
-    transition: 0.2s ease-in; 
-}
-
-.popup-form {
-    background: $neutral-100;
-    padding: 20px;
-    border-radius: 24px;
-    width: 100%;
-    box-shadow: 0 4px 8px $neutral-900;
-    transition: 0.5s all linear; //transition funkar ej 
-}
-
-.popup-form input,
-.popup-form textarea {
-    background-color: #dddbe4; /*testa ändra färg till 500*/
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid $neutral-500;
-    border-radius: 10px;
-    font-size: 14px;
-    color: $neutral-900; 
-    opacity: 29; /*opacity ska va 20% egentligen*/
-}
-
-::placeholder {
-    color: $neutral-900;
-}
-
-.edit-task textarea:focus {
-    height: auto;
-}
-
-.edit-task button {
-    cursor: pointer;
-}
-
-.popup-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-.task-list ul {
-    list-style: none;
-    padding: 0;
-}
 
 
-.task-list li {
-    background: $neutral-100;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 24px;
-    box-shadow: 0 2px 4px $neutral-900;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.task {
-    width: 100%;
-}
-
-.top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-}
-
-.top-left {
-    display: flex;
-    flex-direction: row;
-    gap: 6px;
-}
-
-.top-right {
-    display: flex;
-    flex-direction: row;
-    gap: 3px;
-}
-
-.task h3 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    color: $neutral-900;
-}
-
-.task p {
-    margin: 0;
-    font-size: 14px;
-    color: $neutral-900;
-    padding-left: 1.1rem;
-}
-
-
-
-/*
-.action-button {
-    display: flex;
-    flex-direction: row;
-    gap: 8px; 
-  }
-
-
-//vill inte flyttas 
-.close-popup {
-    padding-top: 50px;
-    color: $neutral-900;
-    text-decoration: none;
-}
-
-.close-popup:hover {
-    text-decoration: underline;
-}
-
-.action-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-  }
-
-
-.action-button i {
-  font-size: 16px;
-  color: #555;
-}
-
-.action-button:hover {
-  background-color: #f0f0f0;
-}
-*/
-
-
-
-/*DATOR HÄR*/
+//Design for desktop screens
 @media screen and (min-width: 900px) {
-    
     body {
         width: 60%;
-    }
 
-    header {
-        padding-left: 9.5rem;
-    }
+        header {
+            padding-left: 9.5rem;
+        }
 
-    header img {
-        margin-right: auto;
-    }
+        .add-task-button {
+            padding-left: 8rem;
+        }
 
-    .add-task-button {
-        padding-left: 8rem;
-    }
+        .add-task {
+            padding-left: 8.5rem;
+        }
 
-    .add-task {
-        padding-left: 8.5rem;
-    }
+        .popup-form {
+            width: 400px;
+        }
 
-    .popup-form {
-        width: 400px;
-    }
+        .task-list {
+            padding-left: 8rem;
+        }
 
-    .task-list {
-        padding-left: 8rem;
+        nav {
+            width: 40%;
+        }
     }
-
-    nav{
-        width: 40%;
-    }
-    
 }

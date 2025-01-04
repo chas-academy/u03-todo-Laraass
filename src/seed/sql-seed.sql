@@ -11,10 +11,9 @@ CREATE TABLE IF NOT EXISTS Task (
     id INT AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    type VARCHAR(25),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    is_completed BIT(1),
+    is_completed BIT(1) NOT NULL DEFAULT 0,
     list_id INT,
     FOREIGN KEY (list_id) REFERENCES List(id)
 );

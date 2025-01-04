@@ -11,16 +11,15 @@
 <body>
     <aside>
         <nav>
-            <input type="checkbox" class="check" id="menu-toggle" />
-            <label for="menu-toggle" class="toggle">
+            <input type="checkbox" class="menu-toggle" id="menu-toggle" />
+            <label for="menu-toggle">
                 <div class="hamburgermenu">
                 <img src="./assets/menu-dark.svg" alt="Menu">
                 </div>
             </label>
 
             <ul class="menu">
-                <li>Task list<li>
-                <li>Priority</li>
+                <li><a href="index.php" class="option">Task list</a></li>
             </ul>
         </nav>
     </aside>

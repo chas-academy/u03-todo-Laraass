@@ -2,7 +2,7 @@
 require_once "db.php";
 
 
-//hämta tasks från databasen
+//Fetch tasks from the database
 function fetchTasks() {
     global $conn;
     $sql = "SELECT * FROM Task";
@@ -13,25 +13,25 @@ function fetchTasks() {
 }
 
 
-//lägg till en task
-function addNewTask($title, $description, $type="Task list") { //ta bort type sen kanske
+//Add a task
+function addNewTask($title, $description) {
     global $conn;
     
-    $sql = "INSERT INTO Task (title, description, type, created_at, updated_at)
-            VALUES (:title, :description, 0, NOW(), NOW())";
+    $sql = "INSERT INTO Task (title, description, created_at, updated_at, is_completed)
+        VALUES (:title, :description, NOW(), NOW(), 0)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':title', $title);
-    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(":title", $title);
+    $stmt->bindParam(":description", $description);
     $stmt->execute();
 }
 
 
-//ta bort en task
+//Remove a task
 function deleteTask($conn, $id) {
     try {
         $stmt = $conn->prepare("DELETE FROM Task WHERE id = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
     } catch (Exception $e) {
         echo "An error occured while trying to delete the task: " . $e->getMessage();
@@ -39,20 +39,20 @@ function deleteTask($conn, $id) {
 }
 
 
-//markera task klar
+//Mark task as done
 function updateTask () {
     global $conn;
     
-    if (isset($_POST['id']) && isset($_POST['status'])) {
-        $id = $_POST['id'];
-        $status = $_POST['status'];
+    if (isset($_POST["id"]) && isset($_POST["status"])) {
+        $id = $_POST["id"];
+        $status = $_POST["status"];
 
         updateTask($conn, $id, $status);
     }
 }
 
 
-//redigera en task
+//Edit a task
 function editTask($conn, $id, $title, $description) {
     try {
         $stmt = $conn->prepare("UPDATE Task SET title = :title, description = :description, updated_at = NOW() WHERE id = :id");
@@ -68,15 +68,17 @@ function editTask($conn, $id, $title, $description) {
 }
 
 
+//Checkbox toggle
 function toggleTask($conn, $id) {
     try {
         $stmt = $conn->prepare("UPDATE Task SET is_completed = NOT is_completed WHERE id = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
         $stmt->execute();
+        
     } catch (PDOException $e) {
         error_log("Failed to toggle task " . $id . ": " . $e->getMessage());
     }
 }
-
 
 ?>
