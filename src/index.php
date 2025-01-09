@@ -78,7 +78,6 @@ require_once "header.php";
                                                 </form>
                                             </div>
                                         <?php endif; ?>
-
                                         <!-- Delete button -->
                                         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                                             <input type="hidden" name="delete_id" value="<?= $task["id"] ?>">

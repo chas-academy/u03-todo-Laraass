@@ -1,7 +1,6 @@
 <?php
 require_once "db.php";
 
-
 //Fetch tasks from the database
 function fetchTasks() {
     global $conn;
