@@ -22,7 +22,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      -../seed:docker-entrypoint.initdb.d
+      - ./src/seed:/docker-entrypoint-initdb.d
       - mariadb_data:/var/lib/mysql
 
   adminer:

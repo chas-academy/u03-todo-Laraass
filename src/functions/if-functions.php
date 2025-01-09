@@ -1,7 +1,10 @@
 <?php
 require_once "db.php";
 
+//Checks if the request is POST 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["title"], $_POST["description"])) {
+    
+    
     addNewTask($_POST["title"], $_POST["description"]);
     header("Location: index.php");
     exit();
