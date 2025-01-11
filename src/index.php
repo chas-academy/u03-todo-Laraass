@@ -1,9 +1,6 @@
 <?php
-require_once "./db.php";
-require_once "./functions/functions.php";
 require_once "./functions/if-functions.php";
 require_once "header.php";
-
 ?>
 
 <body>
@@ -13,6 +10,7 @@ require_once "header.php";
                 <button><img src="./assets/add-task.svg" alt="Add new task"></button>
             </a>
         </div>
+
         <!-- Add a new task -->
         <section class="form">
             <?php
@@ -154,7 +152,7 @@ require_once "header.php";
                                         </form>
                                     </div>
                                 </div>
-                                <p><?= htmlspecialchars($task["description"]) ?></p>
+                                <p><?= htmlspecialchars($task["description"]); ?></p>
                             </div>
                         </li>
                 <?php

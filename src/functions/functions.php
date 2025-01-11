@@ -1,4 +1,5 @@
 <?php
+
 require_once "db.php";
 
 //Fetch tasks from the database
@@ -79,5 +80,3 @@ function toggleTask($conn, $id) {
         error_log("Failed to toggle task " . $id . ": " . $e->getMessage());
     }
 }
-
-?>
