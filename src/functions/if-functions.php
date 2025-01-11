@@ -1,5 +1,6 @@
 <?php
-require_once "db.php";
+
+require_once "functions.php";
 
 //Verifies if the request is POST and if title and description are provided
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["title"], $_POST["description"])) {
@@ -22,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["delete"]) && isset($_POST["delete_id"])) {
         deleteTask($conn, $_POST["delete_id"]);
     }
+
     //Updates the task with the given id
     elseif (isset($_POST["id"])) {
         updateTask();
@@ -67,5 +69,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["toggle_complete"])) {
 
 //Get tasks from database and store them in the variable
 $tasks = fetchTasks($conn);
-
-?>
